@@ -1,0 +1,28 @@
+.input-border {
+  border-top-left-radius: 90px;
+  border-bottom-left-radius: 90px;
+  position: relative;
+}
+.btn-border {
+  border-top-right-radius: 90px;
+  border-bottom-right-radius: 90px;
+  position: relative;
+}
+.btn-border::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  background-color: #ccc;
+  left: 0;
+  z-index: 2;
+}
+.btn-border:hover {
+  background-color: #eaeaeb;
+}
+.upload{
+  .bell-icon{
+    cursor: pointer;
+    position: relative;
+  }
+}
