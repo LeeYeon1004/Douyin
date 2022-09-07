@@ -16,6 +16,7 @@ const option = [
   },
 ];
 function Sidebar() {
+  // note
   const [isActive, setIsActive] = useState<number>(0);
   const handleActive = (index: number) => {
     setIsActive(index);
