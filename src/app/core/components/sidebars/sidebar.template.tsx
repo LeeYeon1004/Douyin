@@ -29,7 +29,7 @@ function Sidebar() {
             <li
               key={index}
               onClick={() => handleActive(index)}
-              className={`animation leading-[32px] p-[8px] text-[18px] text-[#161823] hover:bg-[#f8f8f8] cursor-pointer ${
+              className={`leading-[32px] p-[8px] text-[18px] text-[#161823] hover:bg-[#f8f8f8] cursor-pointer ${
                 isActive === index && "active"
               }`}
             >
