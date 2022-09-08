@@ -1,27 +1,45 @@
-.input-border {
+.shadowSearch {
+  box-shadow: rgba(0 0 0 /12%) 0px 2px 12px;
+}
+.search-box {
+  border: 1.5px solid transparent;
   border-top-left-radius: 90px;
   border-bottom-left-radius: 90px;
   position: relative;
+  overflow: hidden;
+
+  .input-search:not(:placeholder-shown) ~ .btn-search {
+    color: rgba(22, 24, 35, 0.75);
+  }
+  &:focus-within {
+    border: 1.5px solid rgba(22, 24, 35, 0.2);
+  }
+  .input-border {
+    caret-color: #b5b5b9;
+  }
 }
-.btn-border {
+.btn-search {
   border-top-right-radius: 90px;
   border-bottom-right-radius: 90px;
   position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 28px;
+    background-color: #ccc;
+    left: 0;
+    z-index: 2;
+  }
+  &:hover {
+    background-color: #eaeaeb;
+  }
+  &:active {
+    background-color: rgba(22, 24, 35, 0.06);
+  }
 }
-.btn-border::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 24px;
-  background-color: #ccc;
-  left: 0;
-  z-index: 2;
-}
-.btn-border:hover {
-  background-color: #eaeaeb;
-}
-.upload{
-  .bell-icon{
+.upload {
+  .bell-icon {
     cursor: pointer;
     position: relative;
   }

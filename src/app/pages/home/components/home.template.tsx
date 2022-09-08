@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="max-w-[1100px] flex m-[auto] relative">
+      <div className="max-w-[1150px] flex m-[auto] relative">
         <div className="max-w-[356px] mt-[12px] w-full absolute left-[0]">
           <Sidebar />
         </div>
