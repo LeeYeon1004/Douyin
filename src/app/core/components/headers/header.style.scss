@@ -17,6 +17,14 @@
   .input-border {
     caret-color: #b5b5b9;
   }
+  .input-search {
+    border-top-left-radius: 90px;
+    border-bottom-left-radius: 90px;
+  }
+}
+.search-box,
+.haedless {
+  width: 360px;
 }
 .btn-search {
   border-top-right-radius: 90px;

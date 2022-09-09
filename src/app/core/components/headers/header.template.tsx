@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import Logo from "../../../assets/img/logo.png";
 import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 import HeadlessTippy from "@tippyjs/react/headless";
 import "./header.style.scss";
 import Popper from "../popper/popper.template";
+import ResultSearch from "./resultSearch/resultSearch.template";
+import Avt from "../../../assets/img/avt.png";
+import MenuAvt from "./menuAvt/menuAvt.template";
 function Header() {
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
@@ -17,7 +21,7 @@ function Header() {
   const [searchResult, setSearchResult] = useState<number[]>([]);
   useEffect(() => {
     setTimeout(() => {
-      setSearchResult([1, 2]);
+      setSearchResult([]);
     }, 2000);
   }, []);
   return (
@@ -36,16 +40,19 @@ function Header() {
               visible={searchResult.length > 0}
               interactive={true} // active bên trong thẻ tippy
               render={(attrs) => (
-                <Popper>
-                  <div className="haedless" tabIndex={-1} {...attrs}>
-                    Kết quả
-                  </div>
-                </Popper>
+                <div className="haedless" tabIndex={-1} {...attrs}>
+                  <Popper>
+                    <h3 className="text-[14px] text-[#16182380] font-semibold ml-[16px]">
+                      Account
+                    </h3>
+                    <ResultSearch />
+                  </Popper>
+                </div>
               )}
             >
-              <div className="search-box flex justify-center rounded-[90px] input-search relative">
+              <div className="search-box flex justify-center rounded-[90px] relative">
                 <input
-                  className="input-search bg-[#F1F1F2] outline-none px-[16px] py-[12px] w-[300px]"
+                  className="input-search bg-[#F1F1F2] outline-none px-[16px] py-[12px] w-[302px]"
                   type="text"
                   value={value}
                   placeholder="Tìm kiếm"
@@ -67,13 +74,6 @@ function Header() {
               </div>
             </HeadlessTippy>
           </div>
-          {/* result search */}
-          <ul className="bg-white hidden rounded-[4px] shadowSearch p-[16px] absolute left-[29%] top-[118%] w-[356px]">
-            <li className="flex items-center">
-              <i className="ti-search text-[12px] mr-[12px] text-[#000]"></i>
-              Iphone 14 pro
-            </li>
-          </ul>
         </div>
         {/* option */}
         <div className="upload flex items-center">
@@ -81,15 +81,32 @@ function Header() {
             <i className="fa-regular fa-plus text-[20px]"></i> Upload
           </button>
           <Tippy content="Thông báo" placement="bottom">
-            <div className=" group relative text-[20px] ml-[24px] cursor-pointer">
+            <div className="text-[20px] ml-[24px] cursor-pointer">
               <i className="ti-bell"></i>
             </div>
           </Tippy>
           <Tippy content="Tin nhắn">
-            <div className=" group relative text-[20px] ml-[24px] cursor-pointer">
+            <div className="text-[20px] ml-[24px] cursor-pointer">
               <i className="ti-comment"></i>
             </div>
           </Tippy>
+          {/* menu avt */}
+          <div className="avt ml-[24px]">
+            <HeadlessTippy
+              delay={[0, 700]}
+              placement="top-end"
+              interactive={true}
+              render={(attrs) => (
+                <div className="box min-w-[223px]" tabIndex={-1} {...attrs}>
+                  <Popper>
+                    <MenuAvt />
+                  </Popper>
+                </div>
+              )}
+            >
+              <img className="w-[32px] h[32px]" src={Avt} alt="" />
+            </HeadlessTippy>
+          </div>
         </div>
       </div>
     </div>
