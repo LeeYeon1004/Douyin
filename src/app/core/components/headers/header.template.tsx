@@ -8,6 +8,7 @@ import Popper from "../popper/popper.template";
 import ResultSearch from "./resultSearch/resultSearch.template";
 import Avt from "../../../assets/img/avt.png";
 import MenuAvt from "./menuAvt/menuAvt.template";
+import Language from "./menu-language/language.template";
 function Header() {
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
@@ -24,6 +25,7 @@ function Header() {
       setSearchResult([]);
     }, 2000);
   }, []);
+  const onBack = () => {};
   return (
     <div className="header-wrapper flex items-center border-solid border-b-[1px] py-[8px] justify-center">
       <div className="header-box  flex items-center max-w-[1150px] w-full">
@@ -93,12 +95,14 @@ function Header() {
           {/* menu avt */}
           <div className="avt ml-[24px]">
             <HeadlessTippy
+              visible
               delay={[0, 700]}
               placement="top-end"
               interactive={true}
               render={(attrs) => (
                 <div className="box min-w-[223px]" tabIndex={-1} {...attrs}>
                   <Popper>
+                    <Language title="Ngôn ngữ" onBack={onBack} />
                     <MenuAvt />
                   </Popper>
                 </div>
