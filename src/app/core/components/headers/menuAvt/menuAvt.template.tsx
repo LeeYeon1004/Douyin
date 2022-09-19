@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Data } from "../../../models/menuAvt.interface";
 import "./menuAvt.style.scss";
 const menuItem = [
   {
@@ -47,13 +45,11 @@ const menuItem = [
   },
 ];
 function MenuAvt() {
-  const [menu, setMenu] = useState<Data[]>([{ data: menuItem }]);
-  const current = menu[menu.length - 1];
   return (
     <div>
       {/* menu cấp 1 */}
       <div className="box w-full">
-        {current.data.map((item, index) => (
+        {menuItem.map((item, index) => (
           <Link
             to=""
             key={index}
