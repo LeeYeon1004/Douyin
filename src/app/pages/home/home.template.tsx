@@ -1,5 +1,5 @@
-import Header from "../../../core/components/headers/header.template";
-import Sidebar from "../../../core/components/sidebars/sidebar.template";
+import Header from "../../core/components/headers/header.template";
+import Sidebar from "../../core/components/sidebars/sidebar.template";
 
 function Home() {
   return (
