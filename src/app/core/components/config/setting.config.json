@@ -1,0 +1,44 @@
+[
+  {
+    "content": "Xem hồ sơ",
+    "icon": "fa-solid fa-user",
+    "param": "/link"
+  },
+  {
+    "content": "Nhận xu",
+    "icon": "fa-brands fa-tiktok",
+    "param": "/link"
+  },
+  {
+    "content": "Cài đặt",
+    "icon": "ti-settings",
+    "param": "/link"
+  },
+  {
+    "content": "Tiếng việt",
+    "icon": "ti-book",
+    "children": {
+      "title": "language",
+      "data": [
+        {
+          "code": "en",
+          "title": "English"
+        },
+        {
+          "code": "vi",
+          "title": "Tiếng Việt"
+        }
+      ]
+    }
+  },
+  {
+    "content": "Phản hồi và trợ giúp",
+    "icon": "ti-help-alt",
+    "param": "/link"
+  },
+  {
+    "content": "Phím tắt",
+    "icon": "fa-regular fa-keyboard",
+    "param": "/link"
+  }
+]

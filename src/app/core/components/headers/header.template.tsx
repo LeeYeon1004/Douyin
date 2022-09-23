@@ -5,7 +5,7 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import "./header.style.scss";
 import Popper from "../popper/popper.template";
 import Avt from "../../../assets/img/avt.png";
-import MenuAvt from "./menuAvt/menuAvt.template";
+import Setting from "./setting/setting.template";
 import Language from "./menu-language/language.template";
 import Search from "./search/search.template";
 function Header() {
@@ -47,7 +47,7 @@ function Header() {
                 <div className="box min-w-[223px]" tabIndex={-1} {...attrs}>
                   <Popper>
                     <Language title="Ngôn ngữ" onBack={onBack} />
-                    <MenuAvt />
+                    <Setting />
                   </Popper>
                 </div>
               )}
