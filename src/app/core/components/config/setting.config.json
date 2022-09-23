@@ -22,11 +22,11 @@
       "data": [
         {
           "code": "en",
-          "title": "English"
+          "option": "English"
         },
         {
           "code": "vi",
-          "title": "Tiếng Việt"
+          "option": "Tiếng Việt"
         }
       ]
     }

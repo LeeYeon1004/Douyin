@@ -6,7 +6,7 @@ import "./header.style.scss";
 import Popper from "../popper/popper.template";
 import Avt from "../../../assets/img/avt.png";
 import Setting from "./setting/setting.template";
-import Language from "./menu-language/language.template";
+import Language from "./setting/menu-language/language.template";
 import Search from "./search/search.template";
 function Header() {
   const onBack = () => {};

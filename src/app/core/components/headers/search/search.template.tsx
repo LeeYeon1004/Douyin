@@ -7,6 +7,7 @@ import Popper from "../../popper/popper.template";
 function Search() {
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
+  const [searchResult, setSearchResult] = useState<number[]>([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,7 +21,6 @@ function Search() {
     setValue("");
     setShowIcon(false);
   };
-  const [searchResult, setSearchResult] = useState<number[]>([]);
   return (
     <>
       <div className="flex-1 relative">
