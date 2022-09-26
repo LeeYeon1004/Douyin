@@ -7,7 +7,7 @@ const option = [
     icon: "fa-solid fa-house",
   },
   {
-    option: "Dành follow",
+    option: "Đang follow",
     icon: "fa-regular fa-user",
   },
   {

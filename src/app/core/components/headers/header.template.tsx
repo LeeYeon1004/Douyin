@@ -47,7 +47,6 @@ function Header() {
           {/* menu avt */}
           <div className="avt ml-[24px]">
             <HeadlessTippy
-              visible
               delay={[0, 700]}
               placement="top-end"
               interactive={true}
