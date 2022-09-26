@@ -1,16 +1,10 @@
 export interface Children {
   title: string;
-  data: {
-    code: string;
-    option: string;
-  };
+  data: { code: string; content: string }[];
 }
-export interface menuAvt {
+export interface Setting {
   content: string;
   icon: string;
   param?: string;
   children?: Children;
-}
-export interface Data {
-  data: menuAvt[];
 }

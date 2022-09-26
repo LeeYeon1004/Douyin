@@ -22,7 +22,7 @@ function Sidebar() {
     setIsActive(index);
   };
   return (
-    <div>
+    <div className="max-w-[356px] mt-[12px] w-full absolute left-[0]">
       {/* menu */}
       <div className="w-full border-b-[1px]">
         <ul className="flex flex-col text-left font-semibold mb-[12px]">

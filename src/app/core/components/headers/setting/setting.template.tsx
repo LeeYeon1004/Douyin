@@ -1,29 +1,54 @@
 import { Link } from "react-router-dom";
 import "./setting.style.scss";
 import menuItem from "../../config/setting.config.json";
-import { Children } from "../../../models/menuAvt.interface";
-function MenuAvt() {
-  const menuChildren = (check: boolean, term: any) => {
-    if (check) {
-      console.log(term);
+import { Setting as SettingModel } from "../../../models/setting.interface";
+import { useEffect, useState } from "react";
+import Language from "./title-language/language.template";
+function Setting({ hide }: { hide: Boolean }) {
+  const [history, setHistory] = useState<{ data: SettingModel[] }[]>([
+    {
+      data: menuItem,
+    },
+  ]);
+
+  const current = history[history.length - 1];
+  const menuChildren = (menu: any) => {
+    const isChildren = !!menu;
+    if (isChildren) {
+      setHistory((prev) => [...prev, menu]);
     }
   };
+  const onBack = () => {
+    setHistory((prev) => prev.slice(0, prev.length - 1));
+  };
+  const handleActive = (index: number) => {
+    // setActive(index);
+  };
+  useEffect(() => {
+    if (hide) {
+      setHistory((prev) => prev.slice(0, 1));
+    }
+  }, [hide]);
   return (
     <div>
       {/* menu cấp 1 */}
       <div className="box w-full">
-        {menuItem.map((item, index) => {
-          const isChildren = !!item.children;
+        {history.length > 1 ? <Language onBack={onBack} /> : ""}
+        {current.data.map((item, index) => {
+          const check = !!item.param;
           return (
             <Link
-              to={item.param + ""}
+              to={check ? item.param + "" : ""}
               key={index}
-              className="flex items-center w-full px-[16px] py-[9px] hover:bg-[#16182308] cursor-default"
+              className="flex items-center w-full px-[16px] leading-[42px] hover:bg-[#16182308] cursor-default"
             >
               <i className={item.icon}></i>
               <button
-                onClick={() => menuChildren(isChildren, item.children)}
-                className="ml-[12px] text-[16px] font-semibold select-none"
+                onClick={() => {
+                  menuChildren(item.children);
+                  handleActive(index);
+                }}
+                className="ml-[12px] text-[16px] font-semibold select-none w-full text-left"
               >
                 {item.content}
               </button>
@@ -35,4 +60,4 @@ function MenuAvt() {
   );
 }
 
-export default MenuAvt;
+export default Setting;
