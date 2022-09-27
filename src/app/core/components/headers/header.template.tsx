@@ -8,6 +8,10 @@ import Avt from "../../../assets/img/avt.png";
 import Setting from "./setting/setting.template";
 import Search from "./search/search.template";
 import { useState } from "react";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NotifyIcon } from "../config/notify.icon";
+import { MessageIcon } from "../config/message.icon";
 function Header() {
   const [hide, setHide] = useState<Boolean>(false);
   const hideMenu = () => {
@@ -18,7 +22,7 @@ function Header() {
   };
   return (
     <div className="header-wrapper flex items-center border-solid border-b-[1px] py-[8px] justify-center">
-      <div className="header-box  flex items-center max-w-[1150px] w-full">
+      <div className="header-box  flex items-center max-w-[1150px] w-full pl-[20px] pr-[24px]">
         {/* logo */}
         <div className="logo w-[118px] cursor-pointer">
           <a href="/">
@@ -31,23 +35,22 @@ function Header() {
         <div className="upload flex items-center">
           <Tippy content="Upload">
             <button className="border-[1px] py-[6px] px-[16px] hover:bg-[#F1F1F2]">
-              <i className="fa-regular fa-plus text-[20px]"></i> Upload
-            </button>
-          </Tippy>
-          <Tippy content="Thông báo">
-            <button className="relative text-[20px] ml-[24px] cursor-pointer">
-              <i className="ti-bell"></i>
+              <FontAwesomeIcon icon={faPlus} /> Upload
             </button>
           </Tippy>
           <Tippy content="Tin nhắn">
-            <button className="relative text-[20px] ml-[24px] cursor-pointer">
-              <i className="ti-comment"></i>
+            <button className="relative text-[20px] ml-[16px] cursor-pointer w-[26px] h-[26px]">
+              <MessageIcon />
+            </button>
+          </Tippy>
+          <Tippy content="Thông báo">
+            <button className="relative text-[20px] ml-[16px] cursor-pointer">
+              <NotifyIcon />
             </button>
           </Tippy>
           {/* menu avt */}
-          <div className="avt ml-[24px]">
+          <div className="avt ml-[16px]">
             <HeadlessTippy
-              visible
               delay={[0, 700]}
               placement="top-end"
               interactive={true}

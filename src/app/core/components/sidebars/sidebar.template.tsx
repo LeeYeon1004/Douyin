@@ -7,7 +7,7 @@ const option = [
     icon: "fa-solid fa-house",
   },
   {
-    option: "Dành follow",
+    option: "Đang follow",
     icon: "fa-regular fa-user",
   },
   {
@@ -23,9 +23,8 @@ function Sidebar() {
   };
   return (
     <div className="max-w-[356px] mt-[12px] w-full absolute left-[0]">
-      {/* menu */}
       <div className="w-full border-b-[1px]">
-        <ul className="flex flex-col text-left font-semibold mb-[12px]">
+        <ul className="flex flex-col text-left font-bold mb-[12px]">
           {option.map((item, index) => (
             <li
               key={index}
@@ -40,7 +39,7 @@ function Sidebar() {
           ))}
         </ul>
       </div>
-      {/* option */}
+      {/* offer account */}
       <div className="font-medium border-b-[1px]">
         <div className="my-[12px]">
           <p className="text-[14px] text-[#161823bf]">Tài khoản được đề xuất</p>

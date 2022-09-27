@@ -1,15 +1,21 @@
 import "./search.style.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 function Search() {
-  const [show, setShow] = useState<boolean>(false);
+  const [iconClose, setIconClose] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
 
-  const showIcon = () => {
-    setShow(true);
-  };
+  useEffect(() => {
+    if (value === "") {
+      setIconClose(false);
+    } else {
+      setIconClose(true);
+    }
+  }, [value]);
   const closeIcon = () => {
     setValue("");
-    setShow(false);
+    setIconClose(false);
   };
   return (
     <>
@@ -17,20 +23,19 @@ function Search() {
         <div className="flex justify-center z-[1]">
           <div className="search-box flex justify-center rounded-[90px] relative">
             <input
-              className="input-search bg-[#F1F1F2] outline-none px-[16px] py-[12px] w-[302px]"
+              className="input-search bg-[#F1F1F2] text-[#161823] outline-none px-[16px] py-[12px] w-[302px] text-[16px] leading-[22px]"
               type="text"
               value={value}
               placeholder="Tìm kiếm"
-              onClick={showIcon}
               onChange={(e) => setValue(e.target.value)}
             />
             <button
               onClick={closeIcon}
               className={`close-text text-[#b5b5b9] h-[48px] px-[4px] absolute z-[2] right-[16%] ${
-                show ? "" : "hidden"
+                iconClose ? "" : "hidden"
               }`}
             >
-              <i className="fa-solid fa-circle-xmark"></i>
+              <FontAwesomeIcon icon={faCircleXmark} />
             </button>
 
             <button className="btn-search text-[#ababaf] bg-[#F1F1F2] py-[12px] px-[16px] w-[52px]">

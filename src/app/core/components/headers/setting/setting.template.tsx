@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./setting.style.scss";
-import menuItem from "../../config/setting.config.json";
+import { menuItem } from "../../config/setting.config";
 import { Setting as SettingModel } from "../../../models/setting.interface";
 import { useEffect, useState } from "react";
 import Language from "./title-language/language.template";
@@ -21,9 +21,6 @@ function Setting({ hide }: { hide: Boolean }) {
   const onBack = () => {
     setHistory((prev) => prev.slice(0, prev.length - 1));
   };
-  const handleActive = (index: number) => {
-    // setActive(index);
-  };
   useEffect(() => {
     if (hide) {
       setHistory((prev) => prev.slice(0, 1));
@@ -42,11 +39,10 @@ function Setting({ hide }: { hide: Boolean }) {
               key={index}
               className="flex items-center w-full px-[16px] leading-[42px] hover:bg-[#16182308] cursor-default"
             >
-              <i className={item.icon}></i>
+              <div className="w-[32px] h-[32px]">{item.svg}</div>
               <button
                 onClick={() => {
                   menuChildren(item.children);
-                  handleActive(index);
                 }}
                 className="ml-[12px] text-[16px] font-semibold select-none w-full text-left"
               >
