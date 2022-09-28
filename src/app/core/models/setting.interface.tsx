@@ -5,7 +5,7 @@ export interface Children {
 }
 export interface Setting {
   content: string;
-  svg: any;
+  svg: JSX.Element;
   param?: string;
   children?: Children;
 }

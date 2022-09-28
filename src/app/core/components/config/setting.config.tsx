@@ -1,52 +1,8 @@
-export const menuItem = [
-  {
-    content: "Xem hồ sơ",
-    svg: "",
-    param: "/",
-  },
-  {
-    content: "Nhận xu",
-    svg: "",
-    param: "/",
-  },
-  {
-    content: "Cài đặt",
-    svg: "",
-    param: "/",
-  },
-  {
-    content: "Tiếng việt",
-    svg: "",
-    children: {
-      title: "language",
-      data: [
-        {
-          code: "en",
-          content: "English",
-        },
-        {
-          code: "vi",
-          content: "Tiếng Việt",
-        },
-      ],
-    },
-  },
-  {
-    content: "Phản hồi và trợ giúp",
-    svg: "",
-    param: "/",
-  },
-  {
-    content: "Phím tắt",
-    svg: "",
-    param: "/",
-  },
-];
-export const iconUser = (
+export const IconUser = () => (
   <svg
     className="css-g0144v"
-    width="32px"
-    height="32px"
+    width="100%"
+    height="100%"
     viewBox="0 0 48 48"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -59,11 +15,11 @@ export const iconUser = (
   </svg>
 );
 
-export const iconTiktok = () => (
+export const IconTiktok = () => (
   <svg
     className="css-g0144v"
-    width="32px"
-    height="32px"
+    width="100%"
+    height="100%"
     viewBox="0 0 20 20"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -80,11 +36,11 @@ export const iconTiktok = () => (
     ></path>
   </svg>
 );
-export const iconSetting = () => (
+export const IconSetting = () => (
   <svg
     className="css-g0144v"
-    width="32px"
-    height="32px"
+    width="100%"
+    height="100%"
     viewBox="0 0 48 48"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -96,11 +52,11 @@ export const iconSetting = () => (
     ></path>
   </svg>
 );
-export const iconLanguage = () => (
+export const IconLanguage = () => (
   <svg
     className="css-g0144v"
-    width="32px"
-    height="32px"
+    width="100%"
+    height="100%"
     viewBox="0 0 48 48"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -112,11 +68,11 @@ export const iconLanguage = () => (
     ></path>
   </svg>
 );
-export const iconHelp = () => (
+export const IconHelp = () => (
   <svg
     className="css-g0144v"
-    width="32px"
-    height="32px"
+    width="100%"
+    height="100%"
     viewBox="0 0 48 48"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -128,11 +84,11 @@ export const iconHelp = () => (
     ></path>
   </svg>
 );
-export const iconKey = () => (
+export const IconKeyboard = () => (
   <svg
     className="css-g0144v"
-    width="32px"
-    height="32px"
+    width="100%"
+    height="100%"
     viewBox="0 0 48 48"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
@@ -144,3 +100,47 @@ export const iconKey = () => (
     ></path>
   </svg>
 );
+export const menuItem = [
+  {
+    content: "Xem hồ sơ",
+    param: "/",
+    svg: <IconUser />,
+  },
+  {
+    content: "Nhận xu",
+    svg: <IconTiktok />,
+    param: "/",
+  },
+  {
+    content: "Cài đặt",
+    svg: <IconSetting />,
+    param: "/",
+  },
+  {
+    content: "Tiếng việt",
+    svg: <IconLanguage />,
+    children: {
+      title: "language",
+      data: [
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+      ],
+    },
+  },
+  {
+    content: "Phản hồi và trợ giúp",
+    svg: <IconHelp />,
+    param: "/",
+  },
+  {
+    content: "Phím tắt",
+    svg: <IconKeyboard />,
+    param: "/",
+  },
+];

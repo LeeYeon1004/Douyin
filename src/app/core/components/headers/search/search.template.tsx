@@ -18,10 +18,10 @@ function Search() {
     setSearchResult(["1"]);
   }, []);
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener("click", (e) => handleClickOutside(e), true);
   }, []);
-  const handleClickOutside = (e: any) => {
-    if (!clickRef.current?.contains(e.target)) {
+  const handleClickOutside = (e: MouseEvent) => {
+    if (!clickRef.current?.contains(e.target as Node)) {
       setShowResult(false);
     }
   };
@@ -41,21 +41,22 @@ function Search() {
   };
   return (
     <>
-      <div className="flex-1 relative">
+      <div className="flex-1 relative" onClick={(e) => {}}>
         <div className="flex justify-center ">
           <div
             ref={clickRef}
-            className="search-box flex justify-center rounded-[90px] relative min-w-[361px]"
+            className="search-box flex justify-center items-center rounded-[90px] relative text-[14px] min-w-[361px]"
           >
             <input
               ref={inputRef}
-              className="input-search bg-[#F1F1F2] text-[#161823] outline-none px-[16px] py-[11px] w-[302px] text-[16px] leading-[22px] flex-[1]"
+              className="input-search bg-[#F1F1F2] text-[#161823] outline-none w-[302px] text-[16px] leading-[22px] pl-[16px] py-[10px]"
               type="text"
               value={valueInput}
               placeholder="Tìm kiếm"
               onChange={(e) => setValueInput(e.target.value)}
               onFocus={() => setShowResult(true)}
             />
+            <span className="seperate"></span>
             <button
               onClick={closeIcon}
               className={`text-[#b5b5b9] h-[48px] px-[4px] absolute right-[16%] ${
@@ -70,8 +71,10 @@ function Search() {
               )}
             </button>
 
-            <button className="btn-search text-[#ababaf] bg-[#F1F1F2] py-[11px] pl-[12px] pr-[16px] w-[52px]">
-              <SearchIcon />
+            <button className="btn-search text-[#ababaf] bg-[#F1F1F2] pl-[12px] pr-[16px] py-[10px]">
+              <div className="w-[24px]">
+                <SearchIcon />
+              </div>
             </button>
             {/* result search */}
             <div

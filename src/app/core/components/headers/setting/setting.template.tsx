@@ -39,7 +39,7 @@ function Setting({ hide }: { hide: Boolean }) {
               key={index}
               className="flex items-center w-full px-[16px] leading-[42px] hover:bg-[#16182308] cursor-default"
             >
-              <div className="w-[32px] h-[32px]">{item.svg}</div>
+              <div className="w-[24px] h-[24px]">{item.svg}</div>
               <button
                 onClick={() => {
                   menuChildren(item.children);

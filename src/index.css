@@ -9,8 +9,7 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif; */
-  font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
-    sans-serif;
+  font-family: "IBM Plex Sans", ProximaNova;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,8 +17,8 @@ body {
 code {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace; */
-  /* font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
-    sans-serif; */
+  font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
+    sans-serif;
 }
 
 /* font */
@@ -31,7 +30,7 @@ code {
 @font-face {
   font-family: ProximaNova;
   src: url("./app/assets/fonts/Proxima-Nova-Regular1.woff2");
-  font-weight: 400;
+  font-weight: 500;
 }
 @font-face {
   font-family: ProximaNova;
