@@ -10,8 +10,8 @@ import Search from "./search/search.template";
 import { useState } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NotifyIcon } from "../config/notify.icon";
-import { MessageIcon } from "../config/message.icon";
+import { NotifyIcon } from "../icons/notify.icon";
+import { MessageIcon } from "../icons/message.icon";
 function Header() {
   const [hide, setHide] = useState<Boolean>(false);
   const hideMenu = () => {
@@ -34,7 +34,7 @@ function Header() {
         {/* option */}
         <div className="upload flex items-center">
           <Tippy content="Upload">
-            <button className="border-[1px] py-[6px] px-[16px] hover:bg-[#F1F1F2]">
+            <button className="border-[1px] font-semibold leading-[24px] text-[#161823] py-[6px] px-[16px] hover:bg-[#F1F1F2]">
               <FontAwesomeIcon icon={faPlus} /> Upload
             </button>
           </Tippy>

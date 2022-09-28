@@ -18,9 +18,33 @@ body {
 code {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace; */
-  font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
-    sans-serif;
+  /* font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
+    sans-serif; */
 }
+
+/* font */
+@font-face {
+  font-family: ProximaNova;
+  src: url("./app/assets/fonts/Proxima-Nova-Regular.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: url("./app/assets/fonts/Proxima-Nova-Regular1.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: url("./app/assets/fonts/Proxima-Nova-Semibold.woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: url("./app/assets/fonts/ProximaNova-Semibold.woff2");
+  font-weight: 700;
+}
+/* ------------- */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

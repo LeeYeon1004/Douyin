@@ -3,7 +3,7 @@ import Sidebar from "../../core/components/sidebars/sidebar.template";
 
 function Home() {
   return (
-    <div className="select-none">
+    <div className="select-none ">
       <Header />
       <div className="max-w-[1150px] flex m-[auto] relative">
         <Sidebar />
