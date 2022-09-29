@@ -31,26 +31,36 @@ function Setting({ hide }: { hide: Boolean }) {
       {/* menu cấp 1 */}
       <div className="box w-full">
         {history.length > 1 ? <Language onBack={onBack} /> : ""}
-        {current.data.map((item, index) => {
-          const check = !!item.param;
-          return (
-            <Link
-              to={check ? item.param + "" : ""}
-              key={index}
-              className="flex items-center w-full px-[16px] leading-[42px] hover:bg-[#16182308] cursor-default"
-            >
-              <div className="w-[24px] h-[24px]">{item.svg}</div>
-              <button
-                onClick={() => {
-                  menuChildren(item.children);
-                }}
-                className="ml-[12px] text-[16px] font-semibold select-none w-full text-left"
+        <div
+          className={`${
+            history.length > 1 && "mt-[50px]"
+          } max-h-[590px] setting-box`}
+        >
+          {current.data.map((item, index) => {
+            const check = !!item.param;
+            return (
+              <Link
+                to={check ? item.param + "" : ""}
+                key={index}
+                className="flex items-center w-full px-[16px] leading-[42px] hover:bg-[#16182308] cursor-default"
               >
-                {item.content}
-              </button>
-            </Link>
-          );
-        })}
+                {history.length < 2 && (
+                  <div className="w-[24px] h-[24px]">{item.svg}</div>
+                )}
+                <button
+                  onClick={() => {
+                    menuChildren(item.children);
+                  }}
+                  className={`ml-[12px] text-[16px] ${
+                    history.length < 2 && "font-semibold"
+                  } select-none w-full text-left`}
+                >
+                  {item.content}
+                </button>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

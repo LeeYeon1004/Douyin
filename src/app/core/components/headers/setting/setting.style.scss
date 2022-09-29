@@ -1,3 +1,14 @@
 .wrapper .box {
   margin-top: 0;
 }
+.setting-box {
+  overflow: auto;
+}
+.setting-box::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+}
+.setting-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}

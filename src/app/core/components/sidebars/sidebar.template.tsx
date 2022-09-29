@@ -16,12 +16,12 @@ function Sidebar() {
             <li
               key={index}
               onClick={() => handleActive(index)}
-              className={`leading-[32px] p-[8px] text-[18px] text-[#161823] hover:bg-[#f8f8f8] cursor-pointer ${
+              className={`flex leading-[32px] p-[8px] text-[18px] text-[#161823] hover:bg-[#f8f8f8] cursor-pointer ${
                 isActive === index && "active"
               }`}
             >
-              <i className={`w-[32px] ${item.svg}`}></i>
-              {item.option}
+              <div className="w-[32px]">{item.svg}</div>
+              <p className="ml-[8px]">{item.option}</p>
             </li>
           ))}
         </ul>

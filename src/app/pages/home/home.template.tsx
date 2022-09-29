@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="select-none ">
       <Header />
-      <div className="max-w-[1150px] flex m-[auto] relative">
+      <div className="max-w-[1150px] flex m-[auto] mt-[60px] relative">
         <Sidebar />
       </div>
     </div>

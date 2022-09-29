@@ -130,6 +130,70 @@ export const menuItem = [
           code: "vi",
           content: "Tiếng Việt",
         },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
+        {
+          code: "en",
+          content: "English",
+        },
+        {
+          code: "vi",
+          content: "Tiếng Việt",
+        },
       ],
     },
   },
