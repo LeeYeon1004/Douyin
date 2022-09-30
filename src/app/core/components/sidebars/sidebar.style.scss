@@ -1,7 +1,18 @@
-
-.animation:hover{
-    transition: linear 0.2s;
+.sidebar-box {
+  max-height: calc(100vh - 100px);
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
 }
-.active{
-    color: #fe2c55;
+.animation:hover {
+  transition: linear 0.2s;
+}
+.active {
+  color: #fe2c55;
 }

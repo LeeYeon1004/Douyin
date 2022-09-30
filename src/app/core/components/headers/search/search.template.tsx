@@ -5,23 +5,31 @@ import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { SearchIcon } from "../../icons/search.icon";
 import { getUser } from "../../../services/api.config";
 import { User } from "../../../models/users.interface";
+import { CheckIcon } from "../../icons/check.icon";
+import { Link } from "react-router-dom";
+// import useDebounce from "../../../hooksCustom/useDebounce";
+
 function Search() {
   const [iconClose, setIconClose] = useState<boolean>(false);
   const [valueInput, setValueInput] = useState<string>("");
   const [showResult, setShowResult] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [users, setUser] = useState<User[]>([]);
-
+  const [newUsers, setNewUsers] = useState<User[]>(users);
   const inputRef = useRef<HTMLInputElement>(null);
   const clickRef = useRef<HTMLDivElement>(null);
+  // const debounced = useDebounce(valueInput, 600);
 
   useEffect(() => {
     handleGetUser();
+    setLoading(true);
     document.addEventListener("click", (e) => handleClickOutside(e), true);
   }, []);
   const handleGetUser = async () => {
+    setLoading(true);
     const userItem = await getUser();
     setUser(userItem);
+    setLoading(false);
   };
   const handleClickOutside = (e: MouseEvent) => {
     if (!clickRef.current?.contains(e.target as Node)) {
@@ -35,7 +43,10 @@ function Search() {
       setShowResult(false);
     } else {
       setIconClose(true);
+      setShowResult(true);
     }
+    handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueInput]);
   const closeIcon = () => {
     setValueInput("");
@@ -43,6 +54,19 @@ function Search() {
     inputRef.current?.focus();
   };
 
+  // search
+  const handleSearch = () => {
+    setNewUsers(
+      users.filter((item) =>
+        item.fullName.toLowerCase().includes(valueInput.toLowerCase())
+      )
+    );
+  };
+  const handleKey = (e: { key: string }) => {
+    if (e.key === "enter") {
+      handleSearch();
+    }
+  };
   return (
     <>
       <div className="flex-1 relative">
@@ -57,8 +81,10 @@ function Search() {
               type="text"
               value={valueInput}
               placeholder="Tìm kiếm"
-              onChange={(e) => setValueInput(e.target.value)}
-              onFocus={() => setShowResult(true)}
+              onChange={(e) => {
+                setValueInput(e.target.value);
+              }}
+              onKeyDown={handleKey}
             />
             <span className="seperate"></span>
             <button
@@ -67,13 +93,18 @@ function Search() {
                 iconClose ? "" : "hidden"
               }`}
             >
-              {!!users && !loading && <FontAwesomeIcon icon={faCircleXmark} />}
+              {!!newUsers && !loading && (
+                <FontAwesomeIcon icon={faCircleXmark} />
+              )}
               {loading && (
                 <FontAwesomeIcon className="spinnerIcon" icon={faSpinner} />
               )}
             </button>
 
-            <button className="btn-search text-[#ababaf] bg-[#F1F1F2] pl-[12px] pr-[16px] py-[10px]">
+            <button
+              onClick={handleSearch}
+              className="btn-search text-[#ababaf] bg-[#F1F1F2] pl-[12px] pr-[16px] py-[10px]"
+            >
               <div className="w-[24px]">
                 <SearchIcon />
               </div>
@@ -81,7 +112,7 @@ function Search() {
             {/* result search */}
             <div
               className={`result-search pt-[8px] rounded-[8px] ${
-                users.length > 0 && showResult ? "block" : "hidden"
+                newUsers.length > 0 && showResult ? "block" : "hidden"
               }`}
             >
               <div className="flex items-center py-[9px] px-[16px]">
@@ -92,13 +123,17 @@ function Search() {
                   kết quả
                 </h4>
               </div>
-              <div className="px-[12px]">
-                <h3 className="py-[5px] font-semibold text-[#16182380] text-[14px]">
+              <div className="">
+                <h3 className="py-[5px] px-[12px] font-semibold text-[#16182380] text-[14px]">
                   Tài khoản
                 </h3>
                 <div className="">
-                  {users.map((item, index) => (
-                    <div key={index} className="acc-item flex py-[9px]">
+                  {newUsers.map((item, index) => (
+                    <Link
+                      to={`/${item.username}`}
+                      key={index}
+                      className="flex py-[9px] px-[12px] hover:bg-[#16182308]"
+                    >
                       <div className="mr-[12px]">
                         <img
                           className="w-[40px] h-[40px] rounded-[50%]"
@@ -107,14 +142,19 @@ function Search() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-[16px] text-[#161823] leading-[22px] font-semibold">
-                          {item.fullName}
-                        </h4>
+                        <div className="flex items-center">
+                          <h4 className="text-[16px] text-[#161823] leading-[22px] font-semibold">
+                            {item.fullName}
+                          </h4>
+                          <div className="ml-[8px]">
+                            <CheckIcon />
+                          </div>
+                        </div>
                         <p className="text-[14px] text-[#16182380] leading-[20px] font-normal">
                           {item.username}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>

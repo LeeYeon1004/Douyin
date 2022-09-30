@@ -9,6 +9,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* <Route path="profile/@:nameID" element={<Home />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
