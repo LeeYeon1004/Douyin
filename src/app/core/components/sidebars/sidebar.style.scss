@@ -1,12 +1,17 @@
 .sidebar-box {
   max-height: calc(100vh - 100px);
   overflow: auto;
+  padding-top: 20px;
+  padding-left: 8px;
+  li {
+    transition: background-color linear 0.2s;
+  }
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #fff;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #ccc;
+    background-color: #f1f1f1;
     border-radius: 4px;
   }
 }
@@ -15,4 +20,9 @@
 }
 .active {
   color: #fe2c55;
+}
+.hashtagItem {
+  button {
+    transition: background-color 0.1s linear;
+  }
 }

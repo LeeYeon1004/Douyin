@@ -11,3 +11,11 @@ export const getUser = async () => {
     console.error(error);
   }
 };
+export const getContent = async () => {
+  try {
+    const response = await request.get("contents");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

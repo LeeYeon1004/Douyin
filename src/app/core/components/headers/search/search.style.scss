@@ -8,8 +8,6 @@
 }
 .search-box {
   border: 1px solid transparent;
-  border-top-left-radius: 92px;
-  border-bottom-left-radius: 92px;
   background-color: #1618230f;
   position: relative;
   border-radius: 92px;
@@ -45,6 +43,9 @@
     border-top-left-radius: 90px;
     border-bottom-left-radius: 90px;
     flex: 1;
+    font-weight: 400;
+    font-family: "IBM Plex Sans", ProximaNova, Arial, Tahoma, PingFangSC,
+      sans-serif;
   }
   .result-search {
     width: 100%;

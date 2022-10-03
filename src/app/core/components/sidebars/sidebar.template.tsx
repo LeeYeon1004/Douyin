@@ -1,16 +1,17 @@
 import "./sidebar.style.scss";
 import { useEffect, useState } from "react";
-import { navSidebar } from "../config/sidebar.config";
+import { navSidebar } from "../configs/sidebar.config";
 import { User } from "../../models/users.interface";
 import { getUser } from "../../services/api.config";
 import { CheckIcon } from "../icons/check.icon";
+import { Hashtag } from "../configs/hashtag.config";
 
 function Sidebar() {
   const [isActive, setIsActive] = useState<number>(0);
   const [users, setUsers] = useState<User[]>([]);
   const [newUsers, setNewUsers] = useState<User[]>([]);
   const [showMore, setShowMore] = useState(false);
-
+  // call api
   useEffect(() => {
     handleGetUser();
   }, []);
@@ -19,6 +20,7 @@ function Sidebar() {
     setUsers(userItem);
     setNewUsers(userItem.slice(0, 5));
   };
+  // -----
   const showFull = () => {
     setNewUsers(users);
     setShowMore(true);
@@ -32,7 +34,7 @@ function Sidebar() {
     setIsActive(index);
   };
   return (
-    <div className="max-w-[346px] mt-[12px] w-full relative">
+    <div className="max-w-[356px] w-full relative">
       <div className="sidebar-box">
         <div className="w-full border-b-[1px]">
           <ul className="flex flex-col text-left font-bold mb-[12px]">
@@ -90,6 +92,24 @@ function Sidebar() {
                 Xem thêm
               </button>
             )}
+          </div>
+        </div>
+        {/* explorer */}
+        <div className="mb-[12px]">
+          <h3 className="my-[12px] text-[14px] text-[#161823bf] font-semibold">
+            Khám phá
+          </h3>
+          <div className="flex flex-wrap">
+            {Hashtag.map((item, index) => (
+              <div key={index} className="hashtagItem w-fit mr-[8px]">
+                <button className="flex items-center rounded-[12px] mb-[12px] border-[1px] border-solid py-[3px] px-[10px] hover:bg-[#16182308]">
+                  <span className="text-[#161823]">{item.icon}</span>
+                  <p className="text-[#161823bf] text-[14px] leading-[18px] ml-[6px]">
+                    {item.tagContent}
+                  </p>
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>

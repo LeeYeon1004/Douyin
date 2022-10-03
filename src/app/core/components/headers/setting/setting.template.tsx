@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./setting.style.scss";
-import { menuItem } from "../../config/setting.config";
+import { menuItem } from "../../configs/setting.config";
 import { Setting as SettingModel } from "../../../models/setting.interface";
 import { useEffect, useState } from "react";
 import Language from "./title-language/language.template";

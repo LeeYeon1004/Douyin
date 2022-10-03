@@ -1,5 +1,5 @@
 import "./search.style.scss";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { SearchIcon } from "../../icons/search.icon";
@@ -67,6 +67,12 @@ function Search() {
       handleSearch();
     }
   };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    if (!inputValue.startsWith(" ")) {
+      setValueInput(e.target.value);
+    }
+  };
   return (
     <>
       <div className="flex-1 relative">
@@ -77,16 +83,15 @@ function Search() {
           >
             <input
               ref={inputRef}
-              className="input-search bg-[#F1F1F2] text-[#161823] outline-none w-[302px] text-[16px] leading-[22px] pl-[16px] py-[10px]"
+              className="input-search bg-[#F1F1F2] text-[#161823] outline-none w-[302px] text-[16px] leading-[22px] pl-[16px] py-[10px] pr-[28px]"
               type="text"
               value={valueInput}
               placeholder="Tìm kiếm"
               onChange={(e) => {
-                setValueInput(e.target.value);
+                handleChange(e);
               }}
               onKeyDown={handleKey}
             />
-            <span className="seperate"></span>
             <button
               onClick={closeIcon}
               className={`text-[#b5b5b9] h-[48px] px-[4px] absolute right-[16%] ${
@@ -100,9 +105,11 @@ function Search() {
                 <FontAwesomeIcon className="spinnerIcon" icon={faSpinner} />
               )}
             </button>
+            <span className="seperate"></span>
 
             <button
               onClick={handleSearch}
+              onMouseDown={(e) => e.preventDefault()}
               className="btn-search text-[#ababaf] bg-[#F1F1F2] pl-[12px] pr-[16px] py-[10px]"
             >
               <div className="w-[24px]">

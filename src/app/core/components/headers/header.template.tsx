@@ -52,6 +52,7 @@ function Header() {
           <div className="avt ml-[16px]">
             <HeadlessTippy
               delay={[0, 700]}
+              hideOnClick={false}
               placement="top-end"
               interactive={true}
               offset={[12, 10]}
