@@ -19,18 +19,18 @@ function Content() {
       {contentItem.map((item, index) => (
         <div key={index} className="content-item">
           <Link to={``}>
-            <img
-              className="w-[56px] h-[56px] rounded-[50%]"
-              src={item.avatar}
-              alt="avt"
-            />
+            <div className="w-[56px] h-[56px]">
+              <img className="rounded-[50%]" src={item.avatar} alt="avt" />
+            </div>
           </Link>
           <div className="ml-[12px]">
-            <div className="flex">
-              <h3>{item.userName}</h3>
-              <p>{item.fullName}</p>
-            </div>
-            <div></div>
+            <Link to={``} className="flex">
+              <h3 className="text-[18px] font-bold leading-[25px] mr-[4px]">
+                {item.userName}
+              </h3>
+              <h4 className="text-[14px] leading-[28px]">{item.fullName}</h4>
+            </Link>
+            <div className="text-[16px] leading-[22px]">{item.status}</div>
           </div>
         </div>
       ))}
