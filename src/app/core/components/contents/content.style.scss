@@ -1,10 +1,31 @@
 .content-box {
   max-width: 692px;
-  max-height: 750px;
   padding: 24px 0;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
   .content-item {
     display: flex;
+    position: relative;
     width: 100%;
     padding: 20px 0;
+    .video-item {
+      position: relative;
+      height: auto;
+    }
+    &::after {
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: #16182333;
+      transform: scaleY(0.5);
+      position: absolute;
+      bottom: 0;
+    }
   }
 }

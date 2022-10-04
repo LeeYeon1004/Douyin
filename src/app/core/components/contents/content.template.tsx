@@ -23,14 +23,33 @@ function Content() {
               <img className="rounded-[50%]" src={item.avatar} alt="avt" />
             </div>
           </Link>
-          <div className="ml-[12px]">
-            <Link to={``} className="flex">
-              <h3 className="text-[18px] font-bold leading-[25px] mr-[4px]">
-                {item.userName}
-              </h3>
-              <h4 className="text-[14px] leading-[28px]">{item.fullName}</h4>
+          <div className="ml-[12px] w-[624px]">
+            <Link to={``}>
+              <div className=" mb-[12px]">
+                <div className="flex items-center">
+                  <h3 className="text-[18px] font-bold leading-[25px] mr-[4px]">
+                    {item.userName}
+                  </h3>
+                  <h4 className="text-[14px] leading-[28px]">
+                    {item.fullName}
+                  </h4>
+                </div>
+                <div className="text-[16px] leading-[22px]">{item.status}</div>
+              </div>
             </Link>
-            <div className="text-[16px] leading-[22px]">{item.status}</div>
+            <div className="video-item">
+              <div className="">
+                <video
+                  className="rounded-[8px] max-h-[600px]"
+                  playsInline={true}
+                  x5-playsinline="true"
+                  webkit-playsinline="true"
+                  tabIndex={2}
+                  controls
+                  src={item.clip}
+                ></video>
+              </div>
+            </div>
           </div>
         </div>
       ))}
