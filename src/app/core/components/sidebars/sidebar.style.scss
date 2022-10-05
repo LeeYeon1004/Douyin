@@ -1,8 +1,10 @@
 .sidebar-box {
   max-height: calc(100vh - 100px);
   overflow: auto;
+  overscroll-behavior-y: contain;
   padding-top: 20px;
   padding-left: 8px;
+  position: fixed;
   li {
     transition: background-color linear 0.2s;
   }

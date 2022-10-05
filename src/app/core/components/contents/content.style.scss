@@ -14,9 +14,27 @@
     position: relative;
     width: 100%;
     padding: 20px 0;
-    .video-item {
-      position: relative;
-      height: auto;
+    .follow-btn {
+      background-color: #fff;
+      color: #fe2c55;
+      border: 1px solid #fe2c55;
+      min-height: 28px;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 600;
+      font-family: ProximaNova, PingFangSC, sans-serif;
+      border-radius: 4px;
+      user-select: none;
+      cursor: pointer;
+      box-sizing: border-box;
+      right: 0;
+      position: absolute;
+      top: 10px;
+      min-width: 88px;
+      padding: 0 10px;
+      &:hover {
+        background-color: #fe2c550f;
+      }
     }
     &::after {
       content: "";
@@ -28,4 +46,15 @@
       bottom: 0;
     }
   }
+}
+@keyframes fadeIn {
+  from {
+    transform: scale(100%);
+  }
+  to {
+    transform: scale(150%);
+  }
+}
+.video-item {
+  display: flex;
 }
