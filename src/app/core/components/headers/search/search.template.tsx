@@ -106,7 +106,6 @@ function Search() {
               )}
             </button>
             <span className="seperate"></span>
-
             <button
               onClick={handleSearch}
               onMouseDown={(e) => e.preventDefault()}

@@ -1,5 +1,6 @@
 .sidebar-box {
   max-height: calc(100vh - 100px);
+  max-width: 356px;
   overflow: auto;
   overscroll-behavior-y: contain;
   padding-top: 20px;
@@ -16,6 +17,38 @@
     background-color: #f1f1f1;
     border-radius: 4px;
   }
+  .footer-box {
+    position: relative;
+    padding-top: 16px;
+    a {
+      color: #16182380;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 17px;
+      display: inline-block;
+      margin-right: 6px;
+      margin-top: 5px;
+    }
+    span {
+      color: #16182380;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 17px;
+      display: inline-block;
+      margin-right: 6px;
+      margin-top: 5px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      right: 8px;
+      top: 0;
+      height: 1px;
+      background: rgba(22, 24, 35, 0.12);
+      transform: scaleY(0.5);
+    }
+  }
 }
 .animation:hover {
   transition: linear 0.2s;
@@ -27,4 +60,24 @@
   button {
     transition: background-color 0.1s linear;
   }
+}
+.offer-acc::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 8px;
+  top: 0;
+  height: 1px;
+  background: rgba(22, 24, 35, 0.12);
+  transform: scaleY(0.5);
+}
+.offer-acc::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 8px;
+  bottom: 0;
+  height: 1px;
+  background: rgba(22, 24, 35, 0.12);
+  transform: scaleY(0.5);
 }

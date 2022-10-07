@@ -1,4 +1,4 @@
-export interface ContentHome {
+export interface User {
   fullName: string;
   userName: string;
   status: string;

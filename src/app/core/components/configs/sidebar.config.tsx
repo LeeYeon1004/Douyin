@@ -54,17 +54,21 @@ export const LiveIcon = () => (
     <path d="M15 15.134C15.6667 15.5189 15.6667 16.4811 15 16.866L12 18.5981C11.3333 18.983 10.5 18.5019 10.5 17.7321L10.5 14.2679C10.5 13.4981 11.3333 13.017 12 13.4019L15 15.134Z"></path>
   </svg>
 );
-export const navSidebar: { option: string; svg: JSX.Element }[] = [
-  {
-    option: "Dành cho bạn",
-    svg: <HomeIcon />,
-  },
-  {
-    option: "Đang follow",
-    svg: <FollowIcon />,
-  },
-  {
-    option: "LIVE",
-    svg: <LiveIcon />,
-  },
-];
+export const navSidebar: { option: string; svg: JSX.Element; link: string }[] =
+  [
+    {
+      option: "Dành cho bạn",
+      link: "/",
+      svg: <HomeIcon />,
+    },
+    {
+      option: "Đang follow",
+      link: "following",
+      svg: <FollowIcon />,
+    },
+    {
+      option: "LIVE",
+      link: "live",
+      svg: <LiveIcon />,
+    },
+  ];
