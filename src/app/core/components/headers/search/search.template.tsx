@@ -2,11 +2,11 @@ import "./search.style.scss";
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { SearchIcon } from "../../icons/search.icon";
-import { getUser } from "../../../services/api.config";
-import { User } from "../../../models/users.interface";
-import { CheckIcon } from "../../icons/check.icon";
+import { SearchIcon } from "../../../services/icons/search.icon";
+import { CheckIcon } from "../../../services/icons/check.icon";
 import { Link } from "react-router-dom";
+import { getUsers } from "../../../services/api.config";
+import { Users } from "../../../models/users.interface";
 // import useDebounce from "../../../hooksCustom/useDebounce";
 
 function Search() {
@@ -14,8 +14,8 @@ function Search() {
   const [valueInput, setValueInput] = useState<string>("");
   const [showResult, setShowResult] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [users, setUser] = useState<User[]>([]);
-  const [newUsers, setNewUsers] = useState<User[]>(users);
+  const [users, setUser] = useState<Users[]>([]);
+  const [newUsers, setNewUsers] = useState<Users[]>(users);
   const inputRef = useRef<HTMLInputElement>(null);
   const clickRef = useRef<HTMLDivElement>(null);
   // const debounced = useDebounce(valueInput, 600);
@@ -27,7 +27,7 @@ function Search() {
   }, []);
   const handleGetUser = async () => {
     setLoading(true);
-    const userItem = await getUser();
+    const userItem = await getUsers();
     setUser(userItem);
     setLoading(false);
   };

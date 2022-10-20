@@ -1,26 +1,26 @@
 import "./sidebar.style.scss";
 import { useEffect, useState } from "react";
-import { navSidebar } from "../configs/sidebar.config";
-import { User } from "../../models/users.interface";
-import { getUser } from "../../services/api.config";
-import { CheckIcon } from "../icons/check.icon";
-import { Hashtag } from "../configs/hashtag.config";
-import { copyright } from "../configs/copyright.config";
-import { adv } from "../configs/adv.config";
-import { help } from "../configs/help.config";
+import { navSidebar } from "../../services/configs/sidebar.config";
+import { CheckIcon } from "../../services/icons/check.icon";
+import { Hashtag } from "../../services/configs/hashtag.config";
+import { copyright } from "../../services/configs/copyright.config";
+import { adv } from "../../services/configs/adv.config";
+import { help } from "../../services/configs/help.config";
 import { Link } from "react-router-dom";
+import { Users } from "../../models/users.interface";
+import { getUsers } from "../../services/api.config";
 
 function Sidebar() {
   const [isActive, setIsActive] = useState<number>(0);
-  const [users, setUsers] = useState<User[]>([]);
-  const [newUsers, setNewUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<Users[]>([]);
+  const [newUsers, setNewUsers] = useState<Users[]>([]);
   const [showMore, setShowMore] = useState(false);
   // call api
   useEffect(() => {
     handleGetUser();
   }, []);
   const handleGetUser = async () => {
-    const userItem = await getUser();
+    const userItem = await getUsers();
     setUsers(userItem);
     setNewUsers(userItem.slice(0, 5));
   };
@@ -51,7 +51,7 @@ function Sidebar() {
                   isActive === index && "active"
                 }`}
               >
-                <div className="w-[32px]">{item.svg}</div>
+                <span className="w-[32px]">{item.svg}</span>
                 <p className="ml-[8px]">{item.option}</p>
               </Link>
             ))}
@@ -63,17 +63,16 @@ function Sidebar() {
                 Tài khoản được đề xuất
               </h3>
               {newUsers.map((item, index) => (
-                <Link to={`../${item.username}`}>
-                  <div
-                    key={index}
-                    className="flex items-center hover:bg-[#f8f8f8] hover:cursor-pointer p-[8px] animation"
-                  >
+                <Link key={index} to={`../${item.username}`}>
+                  <div className="flex items-center hover:bg-[#f8f8f8] hover:cursor-pointer p-[8px] animation">
                     <div className="avatar w-[32px] h-[32px] mr-[12px]">
                       <img className="rounded-[50%]" src={item.avatar} alt="" />
                     </div>
                     <div>
                       <div className="flex items-center">
-                        <h3 className="mr-[4px]">{item.username}</h3>
+                        <h3 className="mr-[4px] font-semibold text-[#161823]">
+                          {item.username}
+                        </h3>
                         <CheckIcon />
                       </div>
                       <p className="text-[12px] text-[#161823bf]">

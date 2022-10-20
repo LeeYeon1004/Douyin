@@ -49,6 +49,9 @@
       transform: scaleY(0.5);
     }
   }
+  img {
+    object-fit: cover;
+  }
 }
 .animation:hover {
   transition: linear 0.2s;
