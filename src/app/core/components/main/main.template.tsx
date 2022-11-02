@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Users } from "../../models/users.interface";
-import FollowBtn from "../for-you/follow-btn/followBtn.template";
+import FollowBtn from "../sidebars/for-you/follow-btn/followBtn.template";
 import RightNav from "../rightNav/rightNav.template";
-import "./contentBox.style.scss";
+import "./main.style.scss";
 import Video from "./video/video.template";
 
 function Contentbox({

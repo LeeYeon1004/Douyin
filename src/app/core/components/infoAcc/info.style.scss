@@ -1,0 +1,16 @@
+.info-box {
+  .mess-btn {
+    border: 1px solid #fe2c55;
+    min-width: 164px;
+    min-height: 36px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fe2c55;
+    border-radius: 4px;
+    margin-right: 8px;
+    transition: background-color 0.15s ease-in-out;
+    &:hover {
+      background-color: #fe2c550f;
+    }
+  }
+}

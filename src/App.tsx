@@ -2,8 +2,9 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./app/pages/home.template";
-import Following from "./app/core/components/following/following.template";
-import ForYou from "./app/core/components/for-you/forYou.template";
+import Following from "./app/core/components/sidebars/following/following.template";
+import ForYou from "./app/core/components/sidebars/for-you/forYou.template";
+import Profile from "./app/pages/profile.template";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/following" element={<Following />} />
             <Route path="/live" />
           </Route>
+          <Route path="/:user" element={<Profile />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

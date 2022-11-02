@@ -11,6 +11,7 @@ function Video({ clip }: { clip: string }) {
         x5-playsinline="true"
         webkit-playsinline="true"
         tabIndex={2}
+        controls
         loop
         src={clip}
       ></video>

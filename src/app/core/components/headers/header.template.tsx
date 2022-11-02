@@ -1,4 +1,3 @@
-import Logo from "../../../assets/img/logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import HeadlessTippy from "@tippyjs/react/headless";
@@ -10,8 +9,9 @@ import Search from "./search/search.template";
 import { useState } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NotifyIcon } from "../../services/icons/notify.icon";
-import { MessageIcon } from "../../services/icons/message.icon";
+import { NotifyIcon } from "../../shares/icons/notify.icon";
+import { MessageIcon } from "../../shares/icons/message.icon";
+import { Logo } from "../../../assets/img/logo";
 function Header() {
   const [hide, setHide] = useState<Boolean>(false);
   const hideMenu = () => {
@@ -21,11 +21,11 @@ function Header() {
     setHide(false);
   };
   return (
-    <div className="flex items-center pl-[20px] pr-[24px]">
+    <div className="flex items-center pl-[20px] pr-[24px] py-[8px]">
       {/* logo */}
       <div className="logo w-[118px] cursor-pointer">
         <a href="/">
-          <img src={Logo} alt="" />
+          <Logo />
         </a>
       </div>
       {/* search */}
@@ -33,7 +33,7 @@ function Header() {
       {/* option */}
       <div className="upload flex items-center">
         <Tippy content="Upload">
-          <button className="border-[1px] font-semibold leading-[24px] text-[#161823] py-[6px] px-[16px] hover:bg-[#F1F1F2]">
+          <button className="border-[1px] font-semibold leading-[22px] text-[#161823] py-[6px] px-[20px] hover:bg-[#F1F1F2]">
             <FontAwesomeIcon icon={faPlus} /> Upload
           </button>
         </Tippy>
