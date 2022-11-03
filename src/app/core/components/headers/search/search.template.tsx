@@ -2,11 +2,11 @@ import "./search.style.scss";
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { SearchIcon } from "../../../shares/icons/search.icon";
 import { CheckIcon } from "../../../shares/icons/check.icon";
 import { Link } from "react-router-dom";
 import { getUsers } from "../../../services/api.config";
 import { Users } from "../../../models/users.interface";
+import { SearchIcon } from "../../../shares/icons/header.icon";
 // import useDebounce from "../../../hooksCustom/useDebounce";
 
 function Search() {

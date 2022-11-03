@@ -1,4 +1,4 @@
-# NO REPONSIVE
+# NO RESPONSIVE
 
 # Getting Started with Create React App
 

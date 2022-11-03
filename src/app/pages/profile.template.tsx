@@ -9,8 +9,8 @@ function Profile() {
         <Header />
       </div>
       <div className="w-full flex m-[auto] mt-[60px] relative">
-        <div className="max-w-[232px] w-full">
-          <Sidebar width="max-w-[232px]" />
+        <div className="max-w-[240px] w-full">
+          <Sidebar width="max-w-[240px]" />
         </div>
         {/* <Outlet /> */}
         <div className="">

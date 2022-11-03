@@ -9,9 +9,8 @@ import Search from "./search/search.template";
 import { useState } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NotifyIcon } from "../../shares/icons/notify.icon";
-import { MessageIcon } from "../../shares/icons/message.icon";
 import { Logo } from "../../../assets/img/logo";
+import { MessageIcon, NotifyIcon } from "../../shares/icons/header.icon";
 function Header() {
   const [hide, setHide] = useState<Boolean>(false);
   const hideMenu = () => {

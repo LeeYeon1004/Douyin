@@ -13,4 +13,41 @@
       background-color: #fe2c550f;
     }
   }
+  strong {
+    font-size: 18px;
+    margin-right: 6px;
+  }
+  .link-pin {
+    transition: all ease-in-out 0.15s;
+    &:hover {
+      text-decoration: underline;
+      color: #fe2c55;
+    }
+  }
+  .div-underline {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    height: 1px;
+    background-color: #0000001f;
+    transition: transform ease-in-out 0.15s;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 50%;
+      height: 2px;
+      background-color: #161823;
+      transform: translateX(0px);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 50%;
+      height: 2px;
+      background-color: #161823;
+      transform: translateX(230px);
+    }
+  }
 }
