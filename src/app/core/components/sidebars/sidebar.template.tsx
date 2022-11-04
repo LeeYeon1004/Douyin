@@ -15,6 +15,7 @@ function Sidebar({ width }: { width: string }) {
   const [users, setUsers] = useState<Users[]>([]);
   const [newUsers, setNewUsers] = useState<Users[]>([]);
   const [showMore, setShowMore] = useState(false);
+  const [follows, setFlollow] = useState<Users[]>([]);
   // call api
   useEffect(() => {
     handleGetUser();
@@ -23,6 +24,9 @@ function Sidebar({ width }: { width: string }) {
     const userItem = await getUsers();
     setUsers(userItem);
     setNewUsers(userItem.slice(0, 5));
+    setFlollow(
+      userItem.filter((item: { following: boolean }) => item.following === true)
+    );
   };
   // -----
   const showFull = () => {
@@ -61,6 +65,48 @@ function Sidebar({ width }: { width: string }) {
             Tài khoản được đề xuất
           </h3>
           {newUsers.map((item, index) => (
+            <Link key={index} to={`../${item.username}`}>
+              <div className="flex items-center hover:bg-[#f8f8f8] hover:cursor-pointer p-[8px] animation">
+                <div className="avatar w-[32px] h-[32px] mr-[12px]">
+                  <img className="rounded-[50%]" src={item.avatar} alt="" />
+                </div>
+                <div>
+                  <div className="flex items-center">
+                    <h3 className="mr-[4px] font-bold text-[#161823]">
+                      {item.username}
+                    </h3>
+                    <CheckIcon />
+                  </div>
+                  <p className="text-[12px] text-[#161823bf]">
+                    {item.fullName}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+          {showMore ? (
+            <button
+              onClick={showLess}
+              className="text-[#fe2c55] text-[14px] font-bold mt-[8px] ml-[8px]"
+            >
+              Ẩn bớt
+            </button>
+          ) : (
+            <button
+              onClick={showFull}
+              className="text-[#fe2c55] text-[14px] font-bold mt-[8px] ml-[8px]"
+            >
+              Xem thêm
+            </button>
+          )}
+        </div>
+      </div>
+      <div className="font-medium relative">
+        <div className="offer-acc py-[12px]">
+          <h3 className="text-[14px] text-[#161823bf] px-[8px] font-semibold">
+            Đang follow
+          </h3>
+          {follows.map((item, index) => (
             <Link key={index} to={`../${item.username}`}>
               <div className="flex items-center hover:bg-[#f8f8f8] hover:cursor-pointer p-[8px] animation">
                 <div className="avatar w-[32px] h-[32px] mr-[12px]">

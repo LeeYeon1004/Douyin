@@ -22,7 +22,7 @@ function Info() {
     const infoItem = infos.filter((item) => item.username === user);
     setInfo(infoItem[0]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [user, infos]);
   const handleGetInfos = async () => {
     const getInfos = await getUsers();
     setInfos(getInfos);
