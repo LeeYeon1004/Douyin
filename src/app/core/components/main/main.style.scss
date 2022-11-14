@@ -1,4 +1,4 @@
-.content-box {
+.main-box {
   max-width: 692px;
   padding: 24px 0;
   &::-webkit-scrollbar {
@@ -9,7 +9,7 @@
     background-color: #f1f1f1;
     border-radius: 4px;
   }
-  .content-item {
+  .main-item {
     display: flex;
     position: relative;
     width: 100%;

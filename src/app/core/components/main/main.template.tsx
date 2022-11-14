@@ -5,7 +5,7 @@ import RightNav from "../rightNav/rightNav.template";
 import "./main.style.scss";
 import Video from "./video/video.template";
 
-function Contentbox({
+function Main({
   accountItem,
   followBtn,
 }: {
@@ -13,9 +13,9 @@ function Contentbox({
   followBtn: string;
 }) {
   return (
-    <div className="content-box">
+    <div className="main-box">
       {accountItem.map((item, index) => (
-        <div key={index} className="content-item">
+        <div key={index} className="main-item">
           <div className="w-[56px] h-[56px]">
             <Link to={`../${item.username}`}>
               <img className="rounded-[50%]" src={item.avatar} alt="avt" />
@@ -51,4 +51,4 @@ function Contentbox({
   );
 }
 
-export default Contentbox;
+export default Main;

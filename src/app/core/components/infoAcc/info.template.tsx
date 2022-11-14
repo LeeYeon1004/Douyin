@@ -27,6 +27,7 @@ function Info() {
     const getInfos = await getUsers();
     setInfos(getInfos);
   };
+
   return (
     <div className="info-box px-[24px] py-[32px] text-[#161823]">
       <div className="mb-[20px]">
@@ -88,8 +89,8 @@ function Info() {
           <span>beacons.ai/songdao99</span>
         </a>
       </div>
-      {/*  */}
-      <div>
+      {/* main video profile */}
+      <div className="main-profile">
         <div className="max-w-[460px]">
           <div className="text-[18px] leading-[25px] flex relative font-semibold">
             <p className="leading-[44px] w-[230px] text-center cursor-pointer">
@@ -100,6 +101,11 @@ function Info() {
             </p>
           </div>
           <div className="div-underline"></div>
+        </div>
+        <div className="video-uploaded">
+          <div>
+            <div className=""></div>
+          </div>
         </div>
       </div>
     </div>

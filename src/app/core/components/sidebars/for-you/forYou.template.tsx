@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./forYou.style.scss";
-import Contentbox from "../../main/main.template";
+import Main from "../../main/main.template";
 import { Users } from "../../../models/users.interface";
 import { getUsers } from "../../../services/api.config";
 
@@ -16,7 +16,7 @@ function ForYou() {
   };
   return (
     <>
-      <Contentbox accountItem={accountItem} followBtn="block" />
+      <Main accountItem={accountItem} followBtn="block" />
     </>
   );
 }

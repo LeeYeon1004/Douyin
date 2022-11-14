@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Users } from "../../../models/users.interface";
 import { getUsers } from "../../../services/api.config";
-import Contentbox from "../../main/main.template";
+import Main from "../../main/main.template";
 
 function Following() {
   const [accountItem, setAccountItem] = useState<Users[]>([]);
@@ -19,7 +19,7 @@ function Following() {
   };
   return (
     <>
-      <Contentbox accountItem={accountItem} followBtn="hidden" />
+      <Main accountItem={accountItem} followBtn="hidden" />
     </>
   );
 }

@@ -26,6 +26,7 @@ function Setting({ hide }: { hide: Boolean }) {
       setHistory((prev) => prev.slice(0, 1));
     }
   }, [hide]);
+
   return (
     <div>
       {/* menu cấp 1 */}

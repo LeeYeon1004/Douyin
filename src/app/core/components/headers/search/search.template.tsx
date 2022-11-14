@@ -14,7 +14,7 @@ function Search() {
   const [valueInput, setValueInput] = useState<string>("");
   const [showResult, setShowResult] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [users, setUser] = useState<Users[]>([]);
+  const [users, setUsers] = useState<Users[]>([]);
   const [newUsers, setNewUsers] = useState<Users[]>(users);
   const inputRef = useRef<HTMLInputElement>(null);
   const clickRef = useRef<HTMLDivElement>(null);
@@ -28,9 +28,10 @@ function Search() {
   const handleGetUser = async () => {
     setLoading(true);
     const userItem = await getUsers();
-    setUser(userItem);
+    setUsers(userItem);
     setLoading(false);
   };
+
   const handleClickOutside = (e: MouseEvent) => {
     if (!clickRef.current?.contains(e.target as Node)) {
       setShowResult(false);
@@ -73,6 +74,7 @@ function Search() {
       setValueInput(e.target.value);
     }
   };
+
   return (
     <>
       <div className="flex-1 relative">
