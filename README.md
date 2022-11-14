@@ -1,4 +1,4 @@
-# NO RESPONSIVE
+# DON'T HAVE RESPONSIVE
 
 ## Available Scripts
 
