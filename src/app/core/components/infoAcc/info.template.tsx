@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Videos } from "../../models/profile.interface";
 import { Users } from "../../models/users.interface";
-import { getUsers } from "../../services/api.config";
+import { getUsers, getVideos } from "../../services/api.config";
 import {
   IconFollowed,
   LinkIcon,
@@ -14,8 +15,10 @@ function Info() {
   let { user } = useParams();
   const [infos, setInfos] = useState<Users[]>([]);
   const [info, setInfo] = useState<Users>();
+  const [videos, setVideos] = useState<Videos[]>([]);
   useEffect(() => {
     handleGetInfos();
+    handleGetVideos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
@@ -23,9 +26,14 @@ function Info() {
     setInfo(infoItem[0]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, infos]);
+
   const handleGetInfos = async () => {
     const getInfos = await getUsers();
     setInfos(getInfos);
+  };
+  const handleGetVideos = async () => {
+    const getData = await getVideos();
+    setVideos(getData);
   };
 
   return (
@@ -91,7 +99,7 @@ function Info() {
       </div>
       {/* main video profile */}
       <div className="main-profile">
-        <div className="max-w-[460px]">
+        <div className="max-w-[460px] mb-[8px]">
           <div className="text-[18px] leading-[25px] flex relative font-semibold">
             <p className="leading-[44px] w-[230px] text-center cursor-pointer">
               Nội dung
@@ -103,9 +111,23 @@ function Info() {
           <div className="div-underline"></div>
         </div>
         <div className="video-uploaded">
-          <div>
-            <div className=""></div>
-          </div>
+          {videos.map((item, index) => (
+            <div key={index} className="video-item">
+              <div className="video-profile">
+                <video
+                  className="rounded-[4px]"
+                  playsInline={true}
+                  x5-playsinline="true"
+                  webkit-playsinline="true"
+                  tabIndex={2}
+                  controls
+                  loop
+                  src={item.link}
+                ></video>
+              </div>
+              <div className="title">{item.title}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

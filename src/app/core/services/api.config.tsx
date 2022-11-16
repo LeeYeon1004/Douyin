@@ -11,3 +11,11 @@ export const getUsers = async () => {
     console.error(error);
   }
 };
+export const getVideos = async () => {
+  try {
+    const response = await request.get("videos");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

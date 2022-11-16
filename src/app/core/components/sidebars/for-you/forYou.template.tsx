@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./forYou.style.scss";
-import Main from "../../main/main.template";
+import Main from "../../video-home/main.template";
 import { Users } from "../../../models/users.interface";
 import { getUsers } from "../../../services/api.config";
 

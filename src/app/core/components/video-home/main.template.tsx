@@ -3,7 +3,7 @@ import { Users } from "../../models/users.interface";
 import FollowBtn from "../sidebars/for-you/follow-btn/followBtn.template";
 import RightNav from "../rightNav/rightNav.template";
 import "./main.style.scss";
-import Video from "./video/video.template";
+import Video from "./video-item/video.template";
 
 function Main({
   accountItem,

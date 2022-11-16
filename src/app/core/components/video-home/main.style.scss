@@ -45,6 +45,9 @@
       bottom: 0;
     }
   }
+  .video-item {
+    display: flex;
+  }
 }
 @keyframes fadeIn {
   from {
@@ -53,7 +56,4 @@
   to {
     transform: scale(150%);
   }
-}
-.video-item {
-  display: flex;
 }
